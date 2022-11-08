@@ -1,3 +1,4 @@
+package src;
 import java.util.Scanner;
 
 public class mastermind {
@@ -30,6 +31,7 @@ public class mastermind {
         Scanner enter = new Scanner(System.in);
         e.guess_color = enter.nextLine();
         verify(e);
+        enter.close();
     }
 
     

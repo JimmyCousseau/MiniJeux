@@ -1,3 +1,4 @@
+package src;
 import java.lang.Math;
 import java.util.Scanner;
 import java.util.ArrayList;
@@ -42,6 +43,7 @@ public class Demineur {
             y = Character.getNumericValue(pos[1]);
         }
         reveal(plateauSol, plateauHidden, x, y);
+        enter.close();
     }
     
     static void reveal(int[][] plateauSol, String[][] plateauHidden, int x, int y) {

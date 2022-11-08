@@ -1,10 +1,12 @@
 import random
+import sys
 import time
 import os.path
 from tkinter import *
 from tkinter.ttk import *
 from pickle import *
 
+SAVE_FILE_NAME = 'progression_save.csv'
 
 class Math:
     def __init__(self, name):
@@ -16,8 +18,8 @@ class Math:
         self.suite = 0
         self.start_time = 0
         self.total = 0
-        if os.path.isfile('math_save.csv'):
-            file = open('math_save.csv', "rb")
+        if os.path.isfile(os.path.join(sys.path[0], SAVE_FILE_NAME)):
+            file = open(os.path.join(sys.path[0], SAVE_FILE_NAME), "rb")
             dictionary = load(file)
             if self.name + "strikes" in dictionary:
                 self.strikes = dictionary[self.name + "strikes"]
@@ -31,7 +33,7 @@ class Math:
             if self.name + "progression" in dictionary:
                 self.progression = dictionary[self.name + "progression"]
         else:
-            file = open("math_save.csv", "wb")
+            file = open(os.path.join(sys.path[0], SAVE_FILE_NAME), "wb")
             dictionary = {self.name + "progression": self.progression,
                           self.name + "difficulty": self.difficulty, self.name + "get_time": self.get_time, self.name + "strikes": self.strikes}
             dump(dictionary, file)
@@ -213,4 +215,6 @@ Game_name = Math(Game_name)
 text.set("Rentrez le nom de votre partie")
 saisie.focus()
 
+tk.title("Entrainement Math")
+tk.resizable(False, False)
 tk.mainloop()

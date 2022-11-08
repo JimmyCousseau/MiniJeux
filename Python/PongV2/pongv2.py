@@ -19,8 +19,8 @@ win = pygame.display.set_mode((width, height))
 pygame.display.set_caption("Pong v2")
 
 # Load images :
-BG_pong = pygame.image.load(
-    r'bg_pong1.png')
+BG_pong = pygame.image.load(r'bg_pong1.png')
+
 pygame.font.init()
 myfont = pygame.font.SysFont('Comic Sans MS', 50)
 
